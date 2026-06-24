@@ -21,4 +21,4 @@ jobs:
         distribution: 'temurin'
         
     - name: Build & Test with maven
-      run: mvn test
+      run: mvn -B test
