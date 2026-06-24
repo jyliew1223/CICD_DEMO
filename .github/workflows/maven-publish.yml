@@ -30,7 +30,10 @@ jobs:
   
     steps:
       - uses: actions/checkout@master
-
+      
+      - name: Make Maven wrapper executable
+        run: chmod +x ./mvnw
+        
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/maven@master
         env:
