@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-with-jdk-23:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,13 +22,11 @@ jobs:
 
   snyk-security-scanning:
     runs-on: ubuntu-latest
-    needs: build
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/maven@v3
+        uses: snyk/actions/maven@vmaster
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
